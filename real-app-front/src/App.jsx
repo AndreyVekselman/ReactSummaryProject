@@ -1,11 +1,18 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Navnbar from "./components/navbar";
 
 function App() {
   return (
-    <div className="App">
-      <div className="text-danger">Hello</div>
-      <i className="bi bi-person"></i>
+    <div className="App d-flex flex-column min-vh-100">
+      <header>
+        <Navnbar />
+      </header>
+      <main className="flex-fill container">
+        Main
+        <div className="text-danger">Hello</div>
+        <i className="bi bi-person"></i>
+      </main>
+      <footer>Footer</footer>
     </div>
   );
 }
