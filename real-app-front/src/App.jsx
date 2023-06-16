@@ -1,4 +1,5 @@
 import "./App.css";
+import Footer from "./components/footer";
 import Navnbar from "./components/navbar";
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
         <div className="text-danger">Hello</div>
         <i className="bi bi-person"></i>
       </main>
-      <footer>Footer</footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
