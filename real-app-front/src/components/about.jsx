@@ -1,24 +1,17 @@
+import PageHeader from "./common/pageHeader";
+
 const About = () => {
   return (
-    <>
-      <div className="row  mt-4">
-        <div className="col-12">
-          <h2>
-            About Real <i className="bi bi-geo-fill"></i>App
-          </h2>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-12 mt-2">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-            necessitatibus architecto facilis magni fugiat beatae dolorum
-            ratione quis. Blanditiis odio expedita assumenda accusamus itaque
-            inventore, corrupti quo vero consectetur esse?
-          </p>
-        </div>
-      </div>
-    </>
+    <PageHeader
+      title={
+        <>
+          About Real <i className="bi bi-geo-fill"></i>
+        </>
+      }
+      description={
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, necessitatibus! Adipisci vel neque obcaecati eos, modi unde, ex autem illum cumque eum alias aliquam enim sit incidunt dolorem, sint repudiandae."
+      }
+    />
   );
 };
 
