@@ -1,5 +1,7 @@
 import "./App.css";
+import About from "./components/about";
 import Footer from "./components/footer";
+import Home from "./components/home";
 import Navnbar from "./components/navbar";
 
 function App() {
@@ -9,9 +11,8 @@ function App() {
         <Navnbar />
       </header>
       <main className="flex-fill container">
-        Main
-        <div className="text-danger">Hello</div>
-        <i className="bi bi-person"></i>
+        <Home />
+        <About />
       </main>
       <footer>
         <Footer />
