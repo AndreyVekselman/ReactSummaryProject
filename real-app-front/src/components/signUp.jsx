@@ -2,23 +2,8 @@ import PageHeader from "./common/pageHeader";
 import Input from "./common/input";
 import { useFormik } from "formik";
 import Joi from "joi";
+import { formikValidateUsingJoi } from "../utils/formikValidateUsingJoi";
 
-function formikValidateUsingJoi(formValidationSchema) {
-  return function validate(values) {
-    const schema = Joi.object(formValidationSchema);
-
-    const { error } = schema.validate(values, { abortEarly: false });
-    if (!error) {
-      return null;
-    }
-    const errors = {};
-    for (const detail of error.details) {
-      const errorKey = detail.path[0];
-      errors[errorKey] = detail.message;
-    }
-    return errors;
-  };
-}
 const SignUp = () => {
   const form = useFormik({
     validateOnMount: true,
