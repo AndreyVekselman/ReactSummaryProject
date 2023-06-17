@@ -1,4 +1,3 @@
-import { Form } from "react-router-dom";
 import PageHeader from "./common/pageHeader";
 import Input from "./common/input";
 const SignUp = () => {
@@ -14,7 +13,9 @@ const SignUp = () => {
       />
 
       <form>
-        <Input />
+        <Input label="Email" name="email" type="email" required />
+        <Input label="Password" name="password" type="password" required />
+        <Input label="Name" name="name" type="text" required />
       </form>
     </>
   );
