@@ -1,11 +1,15 @@
+import { Link, NavLink } from "react-router-dom";
 const Navnbar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+      <nav
+        className="navbar navbar-expand-md navbar-dark bg-dark "
+        aria-label="Fourth navbar example"
+      >
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             Real <i className="bi bi-boxes"> App</i>
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -21,26 +25,38 @@ const Navnbar = () => {
           <div className="collapse navbar-collapse" id="navbarsExample04">
             <ul className="navbar-nav me-auto mb-2 mb-md-0">
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <NavLink className="nav-link" to="/about">
                   About
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <NavLink className="nav-link" href="#">
                   My Cards
-                </a>
+                </NavLink>
               </li>
             </ul>
             <ul className="navbar-nav ms-auto mb-2 mb-md-0">
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Sign In
-                </a>
+                <NavLink className="nav-link" href="#">
+                  Light Mode
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <NavLink className="nav-link" href="#">
+                  Dark Mode
+                </NavLink>
+              </li>
+            </ul>
+            <ul className="navbar-nav ms-auto mb-2 mb-md-0">
+              <li className="nav-item">
+                <NavLink className="nav-link" href="#">
+                  Sign In
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" href="#">
                   Sign Up
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>

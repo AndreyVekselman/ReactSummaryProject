@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import About from "./components/about";
 import Footer from "./components/footer";
@@ -11,8 +12,10 @@ function App() {
         <Navnbar />
       </header>
       <main className="flex-fill container">
-        <Home />
-        <About />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+        </Routes>
       </main>
       <footer>
         <Footer />
