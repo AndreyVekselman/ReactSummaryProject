@@ -1,7 +1,24 @@
 import PageHeader from "./common/pageHeader";
 import Input from "./common/input";
 import { useFormik } from "formik";
+import Joi from "joi";
 
+function formikValidateUsingJoi(formValidationSchema) {
+  return function validate(values) {
+    const schema = Joi.object(formValidationSchema);
+
+    const { error } = schema.validate(values, { abortEarly: false });
+    if (!error) {
+      return null;
+    }
+    const errors = {};
+    for (const detail of error.details) {
+      const errorKey = detail.path[0];
+      errors[errorKey] = detail.message;
+    }
+    return errors;
+  };
+}
 const SignUp = () => {
   const form = useFormik({
     validateOnMount: true,
@@ -10,23 +27,17 @@ const SignUp = () => {
       password: "",
       name: "",
     },
-    validate({ email, password, name }) {
-      const errors = {};
-      let isValid = true;
-      if (!email) {
-        errors.email = "email field is required";
-        isValid = false;
-      }
-      if (!password) {
-        errors.password = "password field is required";
-        isValid = false;
-      }
-      if (!name) {
-        errors.name = "name field is required";
-        isValid = false;
-      }
-      return isValid ? null : errors;
-    },
+
+    validate: formikValidateUsingJoi({
+      email: Joi.string()
+        .min(5)
+        .max(255)
+        .required()
+        .email({ tlds: { allow: false } }),
+      password: Joi.string().min(5).max(1024).required(),
+      name: Joi.string().min(5).max(255).required(),
+    }),
+
     onSubmit(values) {
       console.log("submited", values);
     },
