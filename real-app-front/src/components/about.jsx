@@ -5,7 +5,7 @@ const About = () => {
     <PageHeader
       title={
         <>
-          About Real <i className="bi bi-geo-fill"></i>
+          About Real <i className="bi bi-geo-fill"></i>App
         </>
       }
       description={
