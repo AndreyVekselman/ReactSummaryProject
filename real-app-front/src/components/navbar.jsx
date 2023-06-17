@@ -3,7 +3,7 @@ const Navnbar = () => {
   return (
     <div>
       <nav
-        class="navbar navbar-expand-md navbar-dark bg-dark"
+        class="navbar navbar-expand-md navbar-dark bg-dark  fs-5"
         aria-label="Fourth navbar example"
       >
         <div class="container">
@@ -30,31 +30,31 @@ const Navnbar = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" href="#">
+                <NavLink className="nav-link" to="#">
                   My Cards
                 </NavLink>
               </li>
             </ul>
-            <ul className="navbar-nav ms-auto mb-2 mb-md-0">
+            <ul className="navbar-nav me-auto mb-2 mb-md-0">
               <li className="nav-item">
-                <NavLink className="nav-link" href="#">
+                <NavLink className="nav-link" to="#">
                   Light Mode
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" href="#">
+                <NavLink className="nav-link" to="#">
                   Dark Mode
                 </NavLink>
               </li>
             </ul>
             <ul className="navbar-nav ms-auto mb-2 mb-md-0">
               <li className="nav-item">
-                <NavLink className="nav-link" href="#">
+                <NavLink className="nav-link" to="#">
                   Sign In
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" href="#">
+                <NavLink className="nav-link" to="/sign-up">
                   Sign Up
                 </NavLink>
               </li>
