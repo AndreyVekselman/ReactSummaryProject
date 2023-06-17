@@ -3,28 +3,28 @@ const Navnbar = () => {
   return (
     <div>
       <nav
-        className="navbar navbar-expand-md navbar-dark bg-dark "
+        class="navbar navbar-expand-md navbar-dark bg-dark"
         aria-label="Fourth navbar example"
       >
-        <div className="container">
+        <div class="container">
           <Link className="navbar-brand" to="/">
             Real <i className="bi bi-boxes"> App</i>
           </Link>
           <button
-            className="navbar-toggler"
+            class="navbar-toggler"
             type="button"
-            data-toggle="collapse"
-            data-target="#navbarsExample04"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarsExample04"
             aria-controls="navbarsExample04"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarsExample04">
-            <ul className="navbar-nav me-auto mb-2 mb-md-0">
-              <li className="nav-item">
+          <div class="collapse navbar-collapse" id="navbarsExample04">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
                 <NavLink className="nav-link" to="/about">
                   About
                 </NavLink>
