@@ -18,9 +18,9 @@ const SignUp = () => {
         .min(5)
         .max(255)
         .required()
-        .email({ tlds: { allow: false } }),
-      password: Joi.string().min(5).max(1024).required(),
-      name: Joi.string().min(5).max(255).required(),
+        .email({ tlds: { allow: false } }).label('Email'),
+      password: Joi.string().min(5).max(1024).required().label('Password'),
+      name: Joi.string().min(5).max(255).required().label('Name'),
     }),
 
     onSubmit(values) {
