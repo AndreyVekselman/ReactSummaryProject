@@ -4,8 +4,7 @@ export function createUser(user) {
   return httpService.post("/users", user);
 }
 
-const userService = {
+const usersService = {
   createUser,
 };
-
-export default userService;
+export default usersService;

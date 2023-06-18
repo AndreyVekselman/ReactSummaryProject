@@ -3,6 +3,7 @@ import Input from "./common/input";
 import { useFormik } from "formik";
 import Joi from "joi";
 import { formikValidateUsingJoi } from "../utils/formikValidateUsingJoi";
+import { createUser } from "../services/usersService";
 
 const SignUp = () => {
   const form = useFormik({
@@ -18,13 +19,16 @@ const SignUp = () => {
         .min(5)
         .max(255)
         .required()
-        .email({ tlds: { allow: false } }).label('Email'),
-      password: Joi.string().min(5).max(1024).required().label('Password'),
-      name: Joi.string().min(5).max(255).required().label('Name'),
+        .email({ tlds: { allow: false } })
+        .label("Email"),
+      password: Joi.string().min(5).max(1024).required().label("Password"),
+      name: Joi.string().min(5).max(255).required().label("Name"),
     }),
 
     onSubmit(values) {
-      console.log("submited", values);
+      console.log("submited: ", values);
+      createUser({ ...values, biz: false }).then(console.log);
+      // createUser({ ...values, biz: false });
     },
   });
 

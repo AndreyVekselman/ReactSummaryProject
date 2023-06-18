@@ -1,7 +1,7 @@
 import axios from "axios";
 import config from "../config.json";
 
-axios.defaults.baseURL = config.apiURL;
+axios.defaults.baseURL = config.apiUrl;
 
 const httpService = {
   get: axios.get,

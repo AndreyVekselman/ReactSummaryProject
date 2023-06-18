@@ -1,7 +1,7 @@
 const Input = ({ label, name, error, ...rest }) => {
   return (
-    <div class="form-group my-1">
-      <label for={name} class="form-label">
+    <div className="form-group my-1">
+      <label htmlFor={name} className="form-label">
         {label}
         {rest.required && <span className="text-danger"> *</span>}
       </label>
