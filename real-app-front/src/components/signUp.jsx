@@ -4,8 +4,10 @@ import { useFormik } from "formik";
 import Joi from "joi";
 import { formikValidateUsingJoi } from "../utils/formikValidateUsingJoi";
 import { createUser } from "../services/usersService";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const form = useFormik({
     validateOnMount: true,
     initialValues: {
@@ -29,6 +31,7 @@ const SignUp = () => {
       console.log("submited: ", values);
       createUser({ ...values, biz: false }).then(console.log);
       // createUser({ ...values, biz: false });
+      navigate("/");
     },
   });
 
