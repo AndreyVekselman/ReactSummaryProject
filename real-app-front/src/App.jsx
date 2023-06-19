@@ -3,14 +3,14 @@ import "./App.css";
 import About from "./components/about";
 import Footer from "./components/footer";
 import Home from "./components/home";
-import Navnbar from "./components/navbar";
+import Navbar from "./components/navbar";
 import SignUp from "./components/signUp";
 
 function App() {
   return (
     <div className="App d-flex flex-column min-vh-100">
       <header>
-        <Navnbar />
+        <Navbar />
       </header>
       <main className="flex-fill container">
         <Routes>

@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-const Navnbar = () => {
+const Navbar = () => {
   return (
     <div>
       <nav
@@ -66,4 +66,4 @@ const Navnbar = () => {
   );
 };
 
-export default Navnbar;
+export default Navbar;
