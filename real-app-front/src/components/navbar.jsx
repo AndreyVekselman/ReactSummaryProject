@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-const Navbar = () => {
+const Navbar = ({ user }) => {
   return (
     <nav
       className="navbar navbar-expand-md navbar-dark bg-dark  fs-5"
@@ -28,11 +28,13 @@ const Navbar = () => {
                 About
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="#">
-                My Cards
-              </NavLink>
-            </li>
+            {user?.biz && (
+              <li className="nav-item">
+                <NavLink className="nav-link" to="#">
+                  My Cards
+                </NavLink>
+              </li>
+            )}
           </ul>
           <ul className="navbar-nav me-auto mb-2 mb-md-0">
             <li className="nav-item">
@@ -47,16 +49,31 @@ const Navbar = () => {
             </li>
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-md-0">
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/sign-in">
-                Sign In
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/sign-up">
-                Sign Up
-              </NavLink>
-            </li>
+            {user ? (
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/sign-in">
+                  Sign Out
+                </NavLink>
+              </li>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/sign-in">
+                    Sign In
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/sign-up">
+                    Sign Up
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/sign-up-biz">
+                    Sign Up Business
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

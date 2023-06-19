@@ -36,5 +36,6 @@ const usersService = {
   loginUser,
   logout,
   getJWT,
+  getUser,
 };
 export default usersService;

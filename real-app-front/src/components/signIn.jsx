@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { loginUser } from "../services/usersService";
 
-const SignIn = () => {
+const SignIn = ({ onSubmit }) => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const form = useFormik({
@@ -29,8 +29,8 @@ const SignIn = () => {
 
     async onSubmit(values) {
       try {
-        await loginUser(values);
-        //   navigate("/");
+        await onSubmit(values);
+        navigate("/");
       } catch ({ response }) {
         if (response && response.status === 400) {
           setError(response.data);
