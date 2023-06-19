@@ -3,9 +3,9 @@ import Input from "./common/input";
 import { useFormik } from "formik";
 import Joi from "joi";
 import { formikValidateUsingJoi } from "../utils/formikValidateUsingJoi";
-import { createUser } from "../services/usersService";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { loginUser } from "../services/usersService";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -28,16 +28,14 @@ const SignIn = () => {
     }),
 
     async onSubmit(values) {
-      console.log(values);
-      //   try {
-      //     console.log("submited: ", values);
-      //     await createUser({ ...values, biz: false }).then(console.log);
-      //     navigate("/");
-      //   } catch ({ response }) {
-      //     if (response && response.status === 400) {
-      //       setError(response.data);
-      //     }
-      //   }
+      try {
+        await loginUser(values);
+        //   navigate("/");
+      } catch ({ response }) {
+        if (response && response.status === 400) {
+          setError(response.data);
+        }
+      }
     },
   });
 
@@ -49,7 +47,7 @@ const SignIn = () => {
             Sign In <i className="bi bi-boxes"></i> to Real App
           </>
         }
-        description={"Sighn in to your account"}
+        description={"Sign in to your account"}
       />
 
       <form onSubmit={form.handleSubmit} noValidate>
