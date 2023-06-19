@@ -1,4 +1,5 @@
 import httpService from "./httpService";
+import jwtDecode from "jwt-decode";
 
 const TOKEN_KEY = "token";
 
@@ -21,6 +22,10 @@ export function getJWT() {
   return localStorage.getItem(TOKEN_KEY);
 }
 
+export function getUser() {
+  const token = getJWT();
+  return jwtDecode(token);
+}
 const usersService = {
   createUser,
   loginUser,
