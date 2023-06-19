@@ -5,9 +5,11 @@ import Joi from "joi";
 import { formikValidateUsingJoi } from "../utils/formikValidateUsingJoi";
 import { createUser } from "../services/usersService";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const [error, setError] = useState("");
   const form = useFormik({
     validateOnMount: true,
     initialValues: {
@@ -27,11 +29,16 @@ const SignUp = () => {
       name: Joi.string().min(5).max(255).required().label("Name"),
     }),
 
-    onSubmit(values) {
-      console.log("submited: ", values);
-      createUser({ ...values, biz: false }).then(console.log);
-      // createUser({ ...values, biz: false });
-      navigate("/");
+    async onSubmit(values) {
+      try {
+        console.log("submited: ", values);
+        await createUser({ ...values, biz: false }).then(console.log);
+        navigate("/");
+      } catch ({ response }) {
+        if (response && response.status === 400) {
+          setError(response.data);
+        }
+      }
     },
   });
 
@@ -47,6 +54,8 @@ const SignUp = () => {
       />
 
       <form onSubmit={form.handleSubmit} noValidate>
+        {error && <div className="alert alert-danger ">{error}</div>}
+
         <Input
           {...form.getFieldProps("email")}
           label="Email"
