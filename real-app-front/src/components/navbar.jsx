@@ -48,7 +48,7 @@ const Navbar = () => {
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-md-0">
             <li className="nav-item">
-              <NavLink className="nav-link" to="#">
+              <NavLink className="nav-link" to="/sign-in">
                 Sign In
               </NavLink>
             </li>

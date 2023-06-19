@@ -5,11 +5,30 @@ const Home = () => {
     <PageHeader
       title={
         <>
-          Real <i className="bi bi-boxes"></i> App
+          <p className="text-center">
+            Real <i className="bi bi-boxes"></i> App
+          </p>
         </>
       }
       description={
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, necessitatibus! Adipisci vel neque obcaecati eos, modi unde, ex autem illum cumque eum alias aliquam enim sit incidunt dolorem, sint repudiandae."
+        <>
+          <p className="fs-5">
+            <p>
+              Welcome to{" "}
+              <b>
+                Real <b className="bi bi-boxes"></b> App
+              </b>
+              .
+            </p>
+            To start working with the application, please register{" "}
+            <b> (SignUp)</b> and go into<b> (SignIn)</b> the application.{" "}
+            <p>
+              {" "}
+              Only registered business users <b> (SignUp Biz) </b> can create,
+              edit and delete business cards.
+            </p>
+          </p>
+        </>
       }
     />
   );
