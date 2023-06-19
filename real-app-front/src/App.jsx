@@ -8,6 +8,7 @@ import SignUp from "./components/signUp";
 import SignIn from "./components/signIn";
 import { useState } from "react";
 import usersService from "./services/usersService";
+import SignOut from "./components/signOut";
 
 function App() {
   const [user, setUser] = useState(usersService.getUser());
@@ -37,6 +38,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="/sign-in" element={<SignIn onSubmit={login} />} />
+          <Route path="/sign-in" element={<SignOut onSignOut={logout} />} />
           <Route path="/sign-up" element={<SignUp />} />
         </Routes>
       </main>
