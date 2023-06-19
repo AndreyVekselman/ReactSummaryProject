@@ -23,9 +23,14 @@ export function getJWT() {
 }
 
 export function getUser() {
-  const token = getJWT();
-  return jwtDecode(token);
+  try {
+    const token = getJWT();
+    return jwtDecode(token);
+  } catch {
+    return null;
+  }
 }
+
 const usersService = {
   createUser,
   loginUser,
