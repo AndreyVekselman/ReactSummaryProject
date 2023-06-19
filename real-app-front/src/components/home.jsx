@@ -24,8 +24,8 @@ const Home = () => {
             <b> (SignUp)</b> and go into<b> (SignIn)</b> the application.{" "}
             <p>
               {" "}
-              Only registered business users <b> (SignUp Biz) </b> can create,
-              edit and delete business cards.
+              Only registered business users <b> (SignUp Business) </b> can
+              create, edit and delete business cards.
             </p>
           </p>
         </>
