@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <div className="App d-flex flex-column min-vh-100">
+    <div className="App d-flex flex-column min-vh-100 ">
       <header>
         <Navbar user={user} />
       </header>

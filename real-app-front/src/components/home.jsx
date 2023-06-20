@@ -12,6 +12,7 @@ const Home = () => {
         <>
           Welcome to
           <b>
+            {" "}
             Real <b className="bi bi-boxes"></b> App.
           </b>
           <br />

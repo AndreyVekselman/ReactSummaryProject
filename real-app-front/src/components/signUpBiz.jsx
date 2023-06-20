@@ -51,10 +51,14 @@ const SignUpBiz = ({ user }) => {
       <PageHeader
         title={
           <>
-            Sign Up <i className="bi bi-boxes"></i> to Real App
+            Sign Up Business<i className="bi bi-boxes"></i> to Real App
           </>
         }
-        description={"Create a new account, it is free"}
+        description={
+          <>
+            Create a new <b>Business</b> account
+          </>
+        }
       />
 
       <form onSubmit={form.handleSubmit} noValidate>
