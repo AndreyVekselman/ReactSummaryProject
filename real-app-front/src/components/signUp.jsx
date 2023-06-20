@@ -4,10 +4,10 @@ import { useFormik } from "formik";
 import Joi from "joi";
 import { formikValidateUsingJoi } from "../utils/formikValidateUsingJoi";
 import { createUser } from "../services/usersService";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const SignUp = () => {
+const SignUp = (user) => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const form = useFormik({
@@ -41,6 +41,9 @@ const SignUp = () => {
       }
     },
   });
+  if (user) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <>

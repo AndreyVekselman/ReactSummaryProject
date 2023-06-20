@@ -41,11 +41,8 @@ function App() {
             path="/sign-in"
             element={<SignIn user={user} onSubmit={login} />}
           />
-          <Route
-            path="/sign-out"
-            element={<SignOut user={user} onSignOut={logout} />}
-          />
-          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/sign-out" element={<SignOut onSignOut={logout} />} />
+          <Route path="/sign-up" element={<SignUp user={user} />} />
         </Routes>
       </main>
       <footer>
