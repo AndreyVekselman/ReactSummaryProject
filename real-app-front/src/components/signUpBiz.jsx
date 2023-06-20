@@ -7,7 +7,7 @@ import { createUser } from "../services/usersService";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const SignUpBiz = (user) => {
+const SignUpBiz = ({ user }) => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const form = useFormik({
@@ -41,6 +41,7 @@ const SignUpBiz = (user) => {
       }
     },
   });
+
   if (user) {
     return <Navigate to="/" />;
   }
