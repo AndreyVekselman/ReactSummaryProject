@@ -1,7 +1,7 @@
 const PageHeader = ({ title, description }) => {
   return (
     <>
-      <div className="row  mt-4">
+      <div className="row  mt-4 ">
         <div className="col-12">
           <h2>{title}</h2>
         </div>

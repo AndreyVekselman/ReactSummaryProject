@@ -1,5 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
+import BgTheme from "../services/bgTheme";
 const Navbar = ({ user }) => {
+  const { theme, setTheme } = BgTheme();
+
+  const handleLightThemeOnClick = () => {
+    setTheme("light");
+  };
+  const handDarkThemeOnClick = () => {
+    setTheme("dark");
+  };
+  console.log(theme);
   return (
     <nav
       className="navbar navbar-expand-md navbar-dark bg-dark  fs-5"
@@ -38,16 +48,27 @@ const Navbar = ({ user }) => {
             )}
           </ul>
           <ul className="navbar-nav me-auto mb-2 mb-md-0">
-            <li className="nav-item">
-              <NavLink className="nav-link" to="#">
-                Light Mode
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="#">
-                Dark Mode
-              </NavLink>
-            </li>
+            {theme === "light" ? (
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  to="#"
+                  onClick={handDarkThemeOnClick}
+                >
+                  Dark Mode
+                </NavLink>
+              </li>
+            ) : (
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  to="#"
+                  onClick={handleLightThemeOnClick}
+                >
+                  Light Mode
+                </NavLink>
+              </li>
+            )}
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-md-0">
             {user ? (

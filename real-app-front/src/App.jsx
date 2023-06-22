@@ -13,7 +13,6 @@ import SignUpBiz from "./components/signUpBiz";
 
 function App() {
   const [user, setUser] = useState(usersService.getUser());
-
   const refreshUser = () => {
     setUser(usersService.getUser());
   };
