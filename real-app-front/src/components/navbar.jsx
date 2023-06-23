@@ -9,7 +9,6 @@ const Navbar = ({ user }) => {
   const handDarkThemeOnClick = () => {
     setTheme("dark");
   };
-  console.log(theme);
   return (
     <nav
       className="navbar navbar-expand-md navbar-dark bg-dark  fs-5"
@@ -55,7 +54,7 @@ const Navbar = ({ user }) => {
                   to="#"
                   onClick={handDarkThemeOnClick}
                 >
-                  Dark Mode
+                  Dark Mode <i className="bi bi-moon-stars"></i>
                 </NavLink>
               </li>
             ) : (
@@ -65,7 +64,7 @@ const Navbar = ({ user }) => {
                   to="#"
                   onClick={handleLightThemeOnClick}
                 >
-                  Light Mode
+                  Light Mode <i className="bi bi-brightness-high"></i>
                 </NavLink>
               </li>
             )}
