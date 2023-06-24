@@ -43,7 +43,7 @@ const Navbar = () => {
             </li>
             {user?.biz && (
               <li className="nav-item">
-                <NavLink className="nav-link" to="#">
+                <NavLink className="nav-link" to="/bizCards">
                   My Cards
                 </NavLink>
               </li>
