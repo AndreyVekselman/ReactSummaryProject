@@ -1,5 +1,6 @@
 import axios from "axios";
 import config from "../config.json";
+import { toast } from "react-toastify";
 
 axios.defaults.baseURL = config.apiUrl;
 
@@ -9,9 +10,11 @@ export function setCommonHeader(headerName, value) {
 
 axios.interceptors.response.use(null, (error) => {
   if (error.code === "ERR_NETWORK") {
+    toast.error("Network Error");
     console.log("Network Error ");
   } else if (error.response.staus >= 304) {
-    console.log("An unexpected eoor occured");
+    toast.error("An unexpected error occured");
+    console.log("An unexpected error occured");
   }
   return error;
 });
