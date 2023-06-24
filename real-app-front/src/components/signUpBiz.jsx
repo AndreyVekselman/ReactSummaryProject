@@ -3,13 +3,13 @@ import Input from "./common/input";
 import { useFormik } from "formik";
 import Joi from "joi";
 import { formikValidateUsingJoi } from "../utils/formikValidateUsingJoi";
-import { createUser } from "../services/usersService";
+// import { createUser } from "../services/usersService";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "./context/auth.context";
 
 const SignUpBiz = ({ rederect = "/" }) => {
-  const { user } = useAuth();
+  const { user, createUser, login } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const form = useFormik({
@@ -35,6 +35,7 @@ const SignUpBiz = ({ rederect = "/" }) => {
       try {
         console.log("submited: ", values);
         await createUser({ ...values, biz: true }).then(console.log);
+        await login({ email: values.email, password: values.password });
         navigate(rederect);
       } catch ({ response }) {
         if (response && response.status === 400) {
@@ -53,7 +54,7 @@ const SignUpBiz = ({ rederect = "/" }) => {
       <PageHeader
         title={
           <>
-            Sign Up Business<i className="bi bi-boxes"></i> to Real App
+            Sign Up Business <i className="bi bi-boxes"></i> to Real App
           </>
         }
         description={
