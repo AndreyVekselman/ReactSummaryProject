@@ -8,7 +8,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "./context/auth.context";
 
-const SignUpBiz = () => {
+const SignUpBiz = ({ rederect = "/" }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -35,7 +35,7 @@ const SignUpBiz = () => {
       try {
         console.log("submited: ", values);
         await createUser({ ...values, biz: true }).then(console.log);
-        navigate("/");
+        navigate(rederect);
       } catch ({ response }) {
         if (response && response.status === 400) {
           setError(response.data);

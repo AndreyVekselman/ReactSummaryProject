@@ -7,7 +7,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "./context/auth.context";
 
-const SignIn = () => {
+const SignIn = ({ rederect='/' }) => {
   const { user, login } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -31,7 +31,7 @@ const SignIn = () => {
     async onSubmit(values) {
       try {
         await login(values);
-        navigate("/");
+        navigate(rederect);
       } catch ({ response }) {
         if (response && response.status === 400) {
           setError(response.data);

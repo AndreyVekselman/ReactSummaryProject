@@ -19,10 +19,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-in" element={<SignIn rederect="/" />} />
           <Route path="/sign-out" element={<SignOut />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/sign-up-biz" element={<SignUpBiz />} />
+          <Route path="/sign-up" element={<SignUp rederect="/sign-in" />} />
+          <Route path="/sign-up-biz" element={<SignUpBiz rederect="/" />} />
         </Routes>
       </main>
       <footer>
