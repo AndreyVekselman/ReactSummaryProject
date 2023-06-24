@@ -9,7 +9,7 @@ export function setCommonHeader(headerName, value) {
 
 axios.interceptors.response.use(null, (error) => {
   if (error.code === "ERR_NETWORK") {
-    console.log("network Error ");
+    console.log("Network Error ");
   } else if (error.response.staus >= 304) {
     console.log("An unexpected eoor occured");
   }
