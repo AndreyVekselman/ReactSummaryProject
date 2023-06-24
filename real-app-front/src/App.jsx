@@ -9,6 +9,7 @@ import SignIn from "./components/signIn";
 import SignOut from "./components/signOut";
 import SignUpBiz from "./components/signUpBiz";
 import BizCards from "./components/bizCards";
+import ProtectedRoute from "./components/common/protectedRoute";
 
 function App() {
   return (
@@ -24,7 +25,14 @@ function App() {
           <Route path="/sign-out" element={<SignOut />} />
           <Route path="/sign-up" element={<SignUp rederect="/sign-in" />} />
           <Route path="/sign-up-biz" element={<SignUpBiz rederect="/" />} />
-          <Route path="/bizCards" element={<BizCards />} />
+          <Route
+            path="/bizCards"
+            element={
+              <ProtectedRoute>
+                <BizCards />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </main>
       <footer>
