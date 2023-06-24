@@ -10,6 +10,9 @@ import SignOut from "./components/signOut";
 import SignUpBiz from "./components/signUpBiz";
 import BizCards from "./components/bizCards";
 import ProtectedRoute from "./components/common/protectedRoute";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
