@@ -1,6 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import usersService, { getUser, logout } from "../services/usersService";
-import { Await } from "react-router-dom";
+import usersService from "../../services/usersService";
 
 const fn_error_context_must_be_used = () => {
   throw new Error(
@@ -17,7 +16,7 @@ export const authContext = createContext({
 authContext.displayName = "auth";
 
 export const AuthProvider = ({ children }) => {
-  const { user, setUser } = useState(usersService, getUser());
+  const [user, setUser] = useState(usersService.getUser());
 
   const refreshUser = () => setUser(usersService.getUser());
 
@@ -34,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <authContext.Provider
-      value={{ login, logout, createUser: usersService.createUser }}
+      value={{ login, logout, user, createUser: usersService.createUser }}
     >
       {children}
     </authContext.Provider>

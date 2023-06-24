@@ -5,8 +5,10 @@ import Joi from "joi";
 import { formikValidateUsingJoi } from "../utils/formikValidateUsingJoi";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "./context/auth.context";
 
-const SignIn = ({ user, onSubmit }) => {
+const SignIn = () => {
+  const { user, login } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const form = useFormik({
@@ -28,7 +30,7 @@ const SignIn = ({ user, onSubmit }) => {
 
     async onSubmit(values) {
       try {
-        await onSubmit(values);
+        await login(values);
         navigate("/");
       } catch ({ response }) {
         if (response && response.status === 400) {

@@ -1,7 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import BgTheme from "../services/bgTheme";
-const Navbar = ({ user }) => {
+import { useAuth } from "./context/auth.context";
+
+const Navbar = () => {
   const { theme, setTheme } = BgTheme();
+  const { user } = useAuth();
+  console.log(user);
 
   const handleLightThemeOnClick = () => {
     setTheme("light");

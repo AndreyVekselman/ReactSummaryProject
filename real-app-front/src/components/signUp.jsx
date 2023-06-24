@@ -6,8 +6,10 @@ import { formikValidateUsingJoi } from "../utils/formikValidateUsingJoi";
 import { createUser } from "../services/usersService";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "./context/auth.context";
 
-const SignUp = ({ user }) => {
+const SignUp = () => {
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const form = useFormik({
