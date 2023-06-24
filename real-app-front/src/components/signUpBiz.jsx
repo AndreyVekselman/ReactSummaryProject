@@ -3,7 +3,6 @@ import Input from "./common/input";
 import { useFormik } from "formik";
 import Joi from "joi";
 import { formikValidateUsingJoi } from "../utils/formikValidateUsingJoi";
-// import { createUser } from "../services/usersService";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "./context/auth.context";
