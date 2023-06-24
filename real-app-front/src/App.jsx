@@ -10,13 +10,14 @@ import SignOut from "./components/signOut";
 import SignUpBiz from "./components/signUpBiz";
 import BizCards from "./components/bizCards";
 import ProtectedRoute from "./components/common/protectedRoute";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CardCreate from "./components/cardCreate";
 
 function App() {
   return (
     <div className="App d-flex flex-column min-vh-100 ">
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <header>
         <Navbar />
       </header>
@@ -33,6 +34,14 @@ function App() {
             element={
               <ProtectedRoute onlyBiz>
                 <BizCards />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/card-create"
+            element={
+              <ProtectedRoute onlyBiz>
+                <CardCreate />
               </ProtectedRoute>
             }
           />

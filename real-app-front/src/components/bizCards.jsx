@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PageHeader from "./common/pageHeader";
 
 const BizCards = () => {
@@ -10,7 +10,7 @@ const BizCards = () => {
       />
 
       <div className="row">
-        <Link to="create-card">Create Card</Link>
+        <NavLink to="/card-create">Create Card</NavLink>
       </div>
       <div className="row">
         <p>no cards...</p>
