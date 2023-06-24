@@ -7,7 +7,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "./context/auth.context";
 
-const SignIn = ({ rederect='/' }) => {
+const SignIn = ({ rederect = "/" }) => {
   const { user, login } = useAuth();
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -25,7 +25,7 @@ const SignIn = ({ rederect='/' }) => {
         .required()
         .email({ tlds: { allow: false } })
         .label("Email"),
-      password: Joi.string().min(5).max(1024).required().label("Password"),
+      password: Joi.string().min(6).max(1024).required().label("Password"),
     }),
 
     async onSubmit(values) {
@@ -35,6 +35,7 @@ const SignIn = ({ rederect='/' }) => {
       } catch ({ response }) {
         if (response && response.status === 400) {
           setError(response.data);
+          console.log(error);
         }
       }
     },

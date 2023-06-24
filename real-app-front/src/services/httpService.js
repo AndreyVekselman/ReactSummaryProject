@@ -16,7 +16,7 @@ axios.interceptors.response.use(null, (error) => {
     toast.error("An unexpected error occured");
     console.log("An unexpected error occured");
   }
-  return error;
+  return Promise.reject(error);
 });
 
 const httpService = {

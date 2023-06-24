@@ -27,7 +27,7 @@ const SignUp = ({ rederect = "/" }) => {
         .required()
         .email({ tlds: { allow: false } })
         .label("Email"),
-      password: Joi.string().min(5).max(1024).required().label("Password"),
+      password: Joi.string().min(6).max(1024).required().label("Password"),
       name: Joi.string().min(5).max(255).required().label("Name"),
     }),
 
