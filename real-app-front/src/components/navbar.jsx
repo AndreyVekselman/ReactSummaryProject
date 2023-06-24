@@ -5,7 +5,6 @@ import { useAuth } from "./context/auth.context";
 const Navbar = () => {
   const { theme, setTheme } = BgTheme();
   const { user } = useAuth();
-  console.log(user);
 
   const handleLightThemeOnClick = () => {
     setTheme("light");
