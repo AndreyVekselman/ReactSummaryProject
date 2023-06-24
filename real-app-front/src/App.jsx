@@ -22,13 +22,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="/sign-in" element={<SignIn rederect="/" />} />
-          <Route path="/sign-out" element={<SignOut />} />
+          <Route path="/sign-out" element={<SignOut rederect="/" />} />
           <Route path="/sign-up" element={<SignUp rederect="/sign-in" />} />
           <Route path="/sign-up-biz" element={<SignUpBiz rederect="/" />} />
           <Route
             path="/bizCards"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute onlyBiz>
                 <BizCards />
               </ProtectedRoute>
             }
