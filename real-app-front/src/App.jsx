@@ -13,6 +13,7 @@ import ProtectedRoute from "./components/common/protectedRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CardCreate from "./components/cardCreate";
+import CardDelete from "./components/cardDelete";
 
 function App() {
   return (
@@ -42,6 +43,14 @@ function App() {
             element={
               <ProtectedRoute onlyBiz>
                 <CardCreate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/bizCardsz/card-delete/:id"
+            element={
+              <ProtectedRoute onlyBiz>
+                <CardDelete />
               </ProtectedRoute>
             }
           />

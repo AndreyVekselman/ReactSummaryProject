@@ -14,7 +14,7 @@ const Card = ({
           <li className="list-group-item">{bizPhone}</li>
         </ul>
         <Link>Edit</Link>
-        <Link>Delete</Link>
+        <Link to={`/bizCardsz/card-delete/${_id}`}>Delete</Link>
       </div>
     </div>
   );
