@@ -7,12 +7,15 @@ import Joi from "joi";
 import { ToastContainer, toast } from "react-toastify";
 import PageHeader from "./common/pageHeader";
 import Input from "./common/input";
+import { useCard } from "../hooks/useCard";
 
-const CardUpdate = ({ card }) => {
+const CardUpdate = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
-
   const { id } = useParams();
+  const { card } = useCard(id);
+  console.log("id:", id);
+  console.log(card);
   // useEffect(() => {
   //   const cardUpdate = async () => {
   //     await cardsService.updateCard(id, card);
@@ -21,7 +24,7 @@ const CardUpdate = ({ card }) => {
   const form = useFormik({
     validateOnMount: true,
     initialValues: {
-      bizName: "",
+      // bizName: `${card.bizName}`,
       bizDescription: "",
       bizAddress: "",
       bizPhone: "",
@@ -86,8 +89,8 @@ const CardUpdate = ({ card }) => {
         theme="colored"
       />
       <PageHeader
-        title="Create a new Bussiness card"
-        description="Create a new Bussiness card with RealApp"
+        title="Update your Bussiness card"
+        description="Update your Bussiness card with RealApp"
       />
       <form onSubmit={form.handleSubmit} noValidate>
         {error && <div className="alert alert-danger">{error}</div>}
@@ -131,7 +134,7 @@ const CardUpdate = ({ card }) => {
             disabled={!form.isValid}
             className="btn btn-primary"
           >
-            Create Card
+            Update Card
           </button>
         </div>
       </form>
