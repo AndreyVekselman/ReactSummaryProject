@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import cardsService from "../services/cardService";
 
-const useBizCards = () => {
+export const useBizCards = () => {
   const [cards, setCards] = useState([]);
+  useState();
+
   useEffect(() => {
     const getCards = async () => {
       const { data } = await cardsService.getAll();

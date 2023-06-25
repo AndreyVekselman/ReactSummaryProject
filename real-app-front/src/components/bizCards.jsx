@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
 import PageHeader from "./common/pageHeader";
+import { useBizCards } from "../hooks/useBizCards";
 
 const BizCards = () => {
+  const cards = useBizCards();
   return (
     <>
       <PageHeader
@@ -13,7 +15,11 @@ const BizCards = () => {
         <NavLink to="/card-create">Create Card</NavLink>
       </div>
       <div className="row">
-        <p>no cards...</p>
+        {!cards.length ? (
+          <p>no cards...</p>
+        ) : (
+          cards.map((card) => <div>{card._id}</div>)
+        )}
         some card
       </div>
     </>
