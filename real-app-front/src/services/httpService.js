@@ -11,10 +11,8 @@ export function setCommonHeader(headerName, value) {
 axios.interceptors.response.use(null, (error) => {
   if (error.code === "ERR_NETWORK") {
     toast.error("Network Error");
-    console.log("Network Error ");
   } else if (error.response.staus >= 304) {
     toast.error("An unexpected error occured");
-    console.log("An unexpected error occured");
   }
   return Promise.reject(error);
 });
