@@ -10,8 +10,8 @@ const Card = ({
         <h5 className="card-title">{bizName}</h5>
         <p className="card-text">{bizDescripiton}</p>
         <ul className="list-group list-group-flush">
-          <div className="list-group-item">{bizAddress}</div>
-          <div className="list-group-item">{bizPhone}</div>
+          <li className="list-group-item">{bizAddress}</li>
+          <li className="list-group-item">{bizPhone}</li>
         </ul>
         <Link>Edit</Link>
         <Link>Delete</Link>
