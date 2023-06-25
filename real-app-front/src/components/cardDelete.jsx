@@ -5,7 +5,6 @@ import cardsService from "../services/cardService";
 const CardDelete = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  console.log(id);
   useEffect(() => {
     const deleteCard = async () => {
       await cardsService.deleteCard(id);
