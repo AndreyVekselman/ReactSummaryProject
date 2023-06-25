@@ -3,7 +3,6 @@ import cardsService from "../services/cardService";
 
 export const useBizCards = () => {
   const [cards, setCards] = useState([]);
-  useState();
 
   useEffect(() => {
     const getCards = async () => {
