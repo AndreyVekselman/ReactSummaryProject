@@ -13,7 +13,7 @@ const Card = ({
           <li className="list-group-item">{bizAddress}</li>
           <li className="list-group-item">{bizPhone}</li>
         </ul>
-        <Link>Edit</Link>
+        <Link to={`/bizCardsz/card-update/${_id}`}>Edit</Link>
         <Link to={`/bizCardsz/card-delete/${_id}`}>Delete</Link>
       </div>
     </div>
