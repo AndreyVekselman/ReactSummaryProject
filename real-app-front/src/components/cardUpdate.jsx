@@ -13,18 +13,13 @@ const CardUpdate = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const { id } = useParams();
-  const { card } = useCard(id);
+  const card = useCard(id);
   console.log("id:", id);
-  console.log(card);
-  // useEffect(() => {
-  //   const cardUpdate = async () => {
-  //     await cardsService.updateCard(id, card);
-  //   };
-  // }, [id, navigate]);
+
   const form = useFormik({
     validateOnMount: true,
     initialValues: {
-      // bizName: `${card.bizName}`,
+      bizName: "",
       bizDescription: "",
       bizAddress: "",
       bizPhone: "",
@@ -53,7 +48,7 @@ const CardUpdate = () => {
         if (bizImage) {
           body.bizImage = bizImage;
         }
-        await cardsService.createCard(body);
+        await cardsService.updateCard(id, body);
         toast.success("New Card created successefully", {
           position: "top-center",
           autoClose: 1500,
@@ -74,6 +69,11 @@ const CardUpdate = () => {
       }
     },
   });
+  useEffect(() => {
+    if (!card) return;
+    const { bizName, bizAddress, bizDescription, bizPhone, bizImage } = card;
+    form.setValues({ bizName, bizAddress, bizDescription, bizPhone, bizImage });
+  }, [card]);
   return (
     <>
       <ToastContainer
